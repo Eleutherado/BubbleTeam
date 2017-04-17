@@ -1,6 +1,7 @@
 # Status: building MVP
 
-It is just the extension example given by the google [tutorial](https://developer.chrome.com/extensions/getstarted)
+It is just the extension example given by the google [tutorial](https://developer.chrome.com/extensions/getstarted). Test it like  [this](https://developer.chrome.com/extensions/getstarted#unpacked)
+
 
 
 ## Done
