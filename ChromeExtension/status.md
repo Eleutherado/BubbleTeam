@@ -6,7 +6,7 @@ It is just the extension example given by the google [tutorial](https://develope
 
 ## Done
 * Added a description
-* Added an icon -- probably need a better one
+* Added an icon (from google's material icons) -- probably need a better one
 
 ## To Do
 ### Programming
