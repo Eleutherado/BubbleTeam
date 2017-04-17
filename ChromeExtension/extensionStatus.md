@@ -1,11 +1,11 @@
 # Status: building MVP
 
-It is just the extension example given by the google (tutorial)[https://developer.chrome.com/extensions/getstarted]
+It is just the extension example given by the google [tutorial](https://developer.chrome.com/extensions/getstarted)
 
 
 ## Done
 * Added a description
-* Added an icon
+* Added an icon -- probably need a better one
 
 ## To Do
 ### Programming
