@@ -8,6 +8,8 @@
  * @param {function(string)} callback - called when the URL of the current tab
  *   is found.
  */
+chrome.tabs.create({url: 'viz.html'});
+
 function getCurrentTabUrl(callback) {
   // Query filter to be passed to chrome.tabs.query - see
   // https://developer.chrome.com/extensions/tabs#method-query
@@ -115,4 +117,17 @@ document.addEventListener('DOMContentLoaded', function() {
       renderStatus('Cannot display image. ' + errorMessage);
     });
   });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var links = document.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++) {
+        (function () {
+            var ln = links[i];
+            var location = ln.href;
+            ln.onclick = function () {
+                chrome.tabs.create({active: true, url: location});
+            };
+        })();
+    }
 });

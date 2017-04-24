@@ -10,6 +10,10 @@ It is just the extension example given by the google [tutorial](https://develope
 
 ## To Do
 ### Programming
+* Verify valid ID
+* Scrape URLS
+* Create Viz page (link to real website) + info like "we are doing this, go on with your day check back in to see results"
+* 24 hours after creation, show post survey + notify
 * Enable extension to store URL of a site (POSTing it to a server?)
 * Enable extension to detect when user lands on a URL who's root is whitelisted as a news source of interest
 * Enable extension to keep track of how long a user spends on a tracked page.

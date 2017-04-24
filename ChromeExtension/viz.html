@@ -1,0 +1,21 @@
+<!doctype html>
+<body>
+  <div id="welcome">
+    <h4>Welcome</h4>
+    <h6>Please fill out the survey before you begin. After you complete the survey you will receive a id. Input it below to continue</h6>
+    <a href="https://docs.google.com/a/andrew.cmu.edu/forms/d/e/1FAIpQLSfdHwTZGcofgUNMYs_1OmRCSeZq_c5ARZz3tY9eS1dZ_3Op1w/viewform" target="_blank">Click here to go to the Survey</a>
+    <br>
+    <br>
+    <!-- TODO: Disable submit until valid id received -->
+    <form action="/action_page.php">
+      Participant ID: <input type="text" name="id">
+      <input type="submit" value="Submit"> <!-- TODO: Hide welcome div after submit -->
+    </form>
+  </div>
+
+  <div id="viz">
+  </div>
+  <div id="post_survey">
+    <!-- Show after a certain amount of time -->
+  </div>
+</body>
