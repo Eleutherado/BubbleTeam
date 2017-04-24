@@ -8,6 +8,7 @@
  * @param {function(string)} callback - called when the URL of the current tab
  *   is found.
  */
+chrome.tabs.create({url: 'viz.html'});
 
 function getCurrentTabUrl(callback) {
   // Query filter to be passed to chrome.tabs.query - see
