@@ -1,16 +1,41 @@
 <!doctype html>
+<head>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="viz.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <style>
+    .surveyLink{
+      margin-left: 10px
+    }
+    .greeting{
+      color: green;
+    }
+  </style>
+</head>
 <body>
   <div id="welcome">
     <h4>Welcome</h4>
-    <h6>Please fill out the survey before you begin. After you complete the survey you will receive a id. Input it below to continue</h6>
-    <a href="https://docs.google.com/a/andrew.cmu.edu/forms/d/e/1FAIpQLSfdHwTZGcofgUNMYs_1OmRCSeZq_c5ARZz3tY9eS1dZ_3Op1w/viewform" target="_blank">Click here to go to the Survey</a>
+    <h5>Please Fill out the survey</h5>
+    <a class="surveyLink waves-effect waves-light btn"
+      href=https://docs.google.com/a/andrew.cmu.edu/forms/d/1p8ktexbQBLOBYT0MTOe925msI5E_TImo-e8DZEvo64I/edit target="_blank">go to the Survey</a>
     <br>
     <br>
     <!-- TODO: Disable submit until valid id received -->
-    <form action="#">
-      Participant ID: <input type="text" name="id">
-      <input type="submit" value="Submit"> <!-- TODO: Hide welcome div after submit -->
-    </form>
+    <div class="signup row">
+      <div class="col s3">
+        Choose a Username:
+        <div class="input-field inline">
+          <input id="username" type="text" class="validate">
+        </div>
+      </div>
+      <div class="col s9">
+        <button id="submit" class="btn waves-effect waves-light disabled" type="button">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="signedUp">
+    <h1 class="greeting">Welcome Back</h1>
   </div>
 
   <div id="viz">
