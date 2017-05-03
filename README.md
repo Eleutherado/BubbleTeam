@@ -1,4 +1,4 @@
-# BubbleTeam
+# Burst
 Exposing and Visualizing the Filter Bubbles that surround our news consumption.
 
 ###### “If you only see posts from folks who are like you, you’re going to be surprised when someone very unlike you wins the presidency,” -  Eli Pariser  (Author of “The Filter Bubble: What the Internet is Hiding from you”)
