@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Burst",
-  "description": "Keeps track of what news sites you visit and how long stay on them, and uses that data to create a filter bubble vizulization",
+  "description": "Vizualizes your news diet by tracking the news sites you visit.",
   "version": "1.0",
 
   "browser_action": {
