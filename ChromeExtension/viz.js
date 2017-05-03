@@ -19,12 +19,14 @@ $(document).ready(()=>{
   $("#submit").click((event) =>{
     chrome.runtime.sendMessage({id: "dashboard", username: $("input:first").val()}, function(response) {
       console.log(response.farewell);
+      const username = $("input:first").val();
       //if username was entered and button was pressed hide welcome div and show Viz
       //store username in localstorage
       $("#welcome").hide();
-      $("#greeting").text("Hello" + $("input:first").val());
+      $(".greeting").text("Welcome back, " + $("input:first").val());
       $("#signedUp").show();
       chrome.storage.sync.get("username", (usr)=> console.log(usr.username));
+      chrome.tabs.create({url: `https://docs.google.com/forms/d/e/1FAIpQLSf3SJ5DLSyHPJTyIZUDfUkfJKJlzT0T6Hwh_thkDyNlSnkA7Q/viewform?entry.1676722822=${username}`});
     })
 
   })
