@@ -120,10 +120,6 @@ var getLocation = function(href) {
 
 //called when user clicks the extension symbol  (Browser action)
 chrome.browserAction.onClicked.addListener(function(tab) {
-  //opens a tab with the url:
-  //chrome.storage.sync.get("username", (usr) => {
-
-  //})
   chrome.tabs.create({url: 'viz.html'});
 
 })
