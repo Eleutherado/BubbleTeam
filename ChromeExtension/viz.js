@@ -1,7 +1,4 @@
-
-
 $(document).ready(()=>{
-  chrome.storage.sync.get("username", (usr)=> console.log(usr.username));
   chrome.storage.sync.get("username", (usr)=> {
       if(usr.username){
       $("#welcome").hide();
@@ -15,19 +12,22 @@ $(document).ready(()=>{
     if($("input:first").val() != "") $("#submit").removeClass("disabled");
   });
 
-  //Send username to background.js which will store it
+  //Send username to background.js which will store it, hide welcome, show greet and open
   $("#submit").click((event) =>{
     chrome.runtime.sendMessage({id: "dashboard", username: $("input:first").val()}, function(response) {
-      console.log(response.farewell);
-      const username = $("input:first").val();
-      //if username was entered and button was pressed hide welcome div and show Viz
-      //store username in localstorage
+      const username = $("input:first").val()
+
       $("#welcome").hide();
-      $(".greeting").text("Welcome back, " + $("input:first").val());
+      $(".greeting").text("Welcome, " + $("input:first").val());
       $("#signedUp").show();
+
       chrome.storage.sync.get("username", (usr)=> console.log(usr.username));
       chrome.tabs.create({url: `https://docs.google.com/forms/d/e/1FAIpQLSf3SJ5DLSyHPJTyIZUDfUkfJKJlzT0T6Hwh_thkDyNlSnkA7Q/viewform?entry.1676722822=${username}`});
     })
-
   })
+
+  $("#postSurvey").click((event) =>
+    chrome.storage.sync.get("username", (usr) => {
+    chrome.tabs.create({ url: `https://docs.google.com/forms/d/e/1FAIpQLScnCXqfQq814AKCdHJUkL5zRDs5OIMAbmio_ep3HlVj_CG_7w/viewform?usp=pp_url&entry.1676722822=${usr.username}` });
+  }));
 });

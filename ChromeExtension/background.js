@@ -131,8 +131,9 @@ chrome.runtime.onMessage.addListener(
     if (request.id == "dashboard"){
       chrome.storage.sync.get("username", (usr)=> console.log(usr.username));
       chrome.storage.sync.set({ "username": request.username });
-      chrome.storage.sync.get("username", (usr)=> console.log(usr.username));
-      sendResponse({farewell: "got the username"})
+      chrome.storage.sync.get("username", (usr)=>
+			console.log(usr.username));
+      sendResponse({confirm: "got username: " + request.username })
     }
     const siteUrl = getLocation(sender.tab.url);
 
