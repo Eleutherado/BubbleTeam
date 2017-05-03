@@ -8,7 +8,8 @@ script.src = 'jquery-3.2.1.min.js';
 document.getElementsByTagName('head')[0].appendChild(script);
 
 
-var USERNAME = null;
+chrome.storage.sync.set({ "username": null });
+
 // Site whitelist from Alexa Top sites and from newsapi.org
 const NEWS_SITES_WHITELIST = [
 	"www.reddit.com",
@@ -120,7 +121,11 @@ var getLocation = function(href) {
 //called when user clicks the extension symbol  (Browser action)
 chrome.browserAction.onClicked.addListener(function(tab) {
   //opens a tab with the url:
+  //chrome.storage.sync.get("username", (usr) => {
+
+  //})
   chrome.tabs.create({url: 'viz.html'});
+
 })
 
 
@@ -128,27 +133,29 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if (request.id == "dashboard"){
-      console.log("prev username: " + USERNAME);
-      USERNAME = request.username;
-      console.log("new username: " + USERNAME);
+      chrome.storage.sync.get("username", (usr)=> console.log(usr.username));
+      chrome.storage.sync.set({ "username": request.username });
+      chrome.storage.sync.get("username", (usr)=> console.log(usr.username));
       sendResponse({farewell: "got the username"})
     }
     const siteUrl = getLocation(sender.tab.url);
 
+
     if (NEWS_SITES_WHITELIST.includes(siteUrl.hostname)) {
       console.log("newsUrl match!")
+      chrome.storage.sync.get("username", (usr)=>{
+        const data = {
+        "username": usr.username,
+        "url": siteUrl.href,
+        }
 
-      const data = {
-      "username": USERNAME,
-      "url": siteUrl.href,
-      }
-
-      $.ajax("https://bubbleteam-server.herokuapp.com/url", {
-      	data: JSON.stringify(data),
-          method: "POST",
-          contentType: "application/json",
-          dataType: "json",
-      })
-      .done(data => console.log(data));
+        $.ajax("https://bubbleteam-server.herokuapp.com/url", {
+        	data: JSON.stringify(data),
+            method: "POST",
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .done(data => console.log(data));
+      });
     }
 });
