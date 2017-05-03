@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "BubbleTeamExtension",
-  "description": "This extension keeps track of what news sites you visit and how long stay on them, and uses that data to create a filter bubble vizulization",
+  "description": "Keeps track of what news sites you visit and how long stay on them, and uses that data to create a filter bubble vizulization",
   "version": "1.0",
 
   "browser_action": {
